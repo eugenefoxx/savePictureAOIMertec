@@ -1,0 +1,2 @@
+time="2022-02-05T12:13:14+03:00" level=fatal msg=0x4b6dc0 func="main.go:23" file="main.init.0()"
+time="2022-02-05T12:14:06+03:00" level=fatal msg=0x4b6dc0 func="main.go:23" file="main.init.0()"
