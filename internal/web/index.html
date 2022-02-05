@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/web/style.css">
+    <title>Document</title>
+</head>
+<body>
+	{{ range .GetParams}}
+	<h3>Файл сохранен по пути: {{ .Responce}} </h3>
+	<h3>Директория: {{ .Directory}}</h3>
+	<h3>Файл: {{ .File}}</h3>
+	{{end}}
+    <h2>Перенос файла на хранение</h2>
+    <form method="post" style="width: 30%;" action="/savefotoAOI">
+        <input required style="padding-bottom: 5%; margin-bottom: 10%; width: 150%;" type="text" id="qr" name="qr" placeholder="QR код платы">
+        
+        <br>
+        <button class="btn-2" style="margin-left: 120%;" class="button" type="submit">Перенести</button>
+    </form>
+</body>
+<script>
+	debugger;
+	document.addEventListener('submit', (e) => { 
+// Отключаем событие по умолчанию 
+    e.prevent.Default(); 
+	document.getElementsByTagName('input').value = "";
+// Очищаем поля формы 
+    e.target.reset(); 
+});
+
+</script>
+<style>
+    body {
+    background-color: whitesmoke;
+    }
+    .btn-2 {
+	display: inline-block;	
+	box-sizing: border-box;
+	padding: 0 13px;
+	margin: 0 15px 15px 0;
+	outline: none;
+	border: 1px solid transparent;  
+	border-radius: 3px;
+	height: 32px;
+	line-height: 32px;
+	font-size: 14px;
+	font-weight: 500;
+	text-decoration: none;
+	color: #fff;
+	background-color: #65a3be;
+	cursor: pointer;
+	user-select: none;
+	appearance: none;
+	touch-action: manipulation;  
+}
+.btn-2:hover {
+	border-color: transparent;
+	background-color: #4986a1;
+	color: #fff;
+}
+
+</style>
+</html>
