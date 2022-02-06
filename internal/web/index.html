@@ -9,26 +9,27 @@
 </head>
 <body>
 	{{ range .GetParams}}
-	<h3>Файл сохранен по пути: {{ .Responce}} </h3>
-	<h3>Директория: {{ .Directory}}</h3>
-	<h3>Файл: {{ .File}}</h3>
+	<h3>Файл сохранен по пути: {{ .Response}} </h3>
+	<h3>Директория: <font color="green">{{ .Directory}}</font></h3>
+	<h3>Файл: <font color="red">{{ .File}}</font></h3>
 	{{end}}
     <h2>Перенос файла на хранение</h2>
     <form method="post" style="width: 30%;" action="/savefotoAOI">
-        <input required style="padding-bottom: 5%; margin-bottom: 10%; width: 150%;" type="text" id="qr" name="qr" placeholder="QR код платы">
+        <input required style="padding-bottom: 5%; margin-bottom: 10%; width: 150%; font-size: 35px;" type="text" id="qr" name="qr" placeholder="QR код платы">
         
         <br>
-        <button class="btn-2" style="margin-left: 120%;" class="button" type="submit">Перенести</button>
+        <button class="btn-2" style="margin-left: 135%;" class="button" type="submit">Перенести</button>
     </form>
 </body>
 <script>
-	debugger;
+	/*debugger;
 	document.addEventListener('submit', (e) => { 
 // Отключаем событие по умолчанию 
     e.prevent.Default(); 
 	document.getElementsByTagName('input').value = "";
 // Очищаем поля формы 
     e.target.reset(); 
+	*/
 });
 
 </script>
