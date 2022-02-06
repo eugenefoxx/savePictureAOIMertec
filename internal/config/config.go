@@ -20,10 +20,6 @@ type Config struct {
 	HTTP  HTTPConfig
 }
 
-func GetConfig() *Config {
-	return &Config{}
-}
-
 // New returns a new Config struct
 func New() *Config {
 	return &Config{

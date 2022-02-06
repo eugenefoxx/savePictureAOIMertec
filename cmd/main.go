@@ -32,7 +32,7 @@ func init() {
 	logger.Printf("Запускаем конфигурацию переменной окружения.")
 	err := godotenv.Load()
 	if err != nil {
-		logger.Fatalf("No .env file found", err.Error)
+		logger.Fatalf("No .env file found %v", err.Error)
 
 	}
 }
@@ -117,6 +117,7 @@ func (h *Handler) SavefotoAOI() http.HandlerFunc {
 		input, err := ioutil.ReadFile(conf.Files.SourceFile)
 		if err != nil {
 			logger.Errorf(err.Error())
+			w.Write([]byte(err.Error()))
 			return
 		}
 
@@ -148,8 +149,8 @@ func (h *Handler) SavefotoAOI() http.HandlerFunc {
 			}
 			tpl.ExecuteTemplate(w, "index.html", data)*/
 			logger.Errorf(err.Error())
-
-			//return
+			w.Write([]byte(err.Error()))
+			return
 		}
 		logger.Printf("Save file: %s", fmt.Sprintf(destinationFile+qr+"-time-"+strcurrentTime+".jpg"))
 
@@ -170,6 +171,8 @@ func (h *Handler) SavefotoAOI() http.HandlerFunc {
 		err = tpl.ExecuteTemplate(w, conf.HTTP.IndexExecute, data)
 		if err != nil {
 			logger.Errorf("%s", err.Error())
+			w.Write([]byte(err.Error()))
+			return
 		}
 
 	}
