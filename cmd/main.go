@@ -167,6 +167,10 @@ func (h *Handler) SavefotoAOI() http.HandlerFunc {
 		data := map[string]interface{}{
 			"GetParams": params,
 		}
+		e := os.Remove(conf.Files.SourceFile)
+		if e != nil {
+			logger.Errorf(e.Error())
+		}
 		//qr = ""
 		err = tpl.ExecuteTemplate(w, conf.HTTP.IndexExecute, data)
 		if err != nil {
